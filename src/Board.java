@@ -1,5 +1,7 @@
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,11 +32,41 @@ enum Difficulty
     BoardSquare firstNonFixed;
     Map<String, BoardSquare> squareMap = new HashMap<>(81);
 
-    static FileParser easyFile =new FileParser("puzzles/easy.txt");
-    static FileParser randomFile = new FileParser("puzzles/luck.txt");
-    static FileParser hardFile =new FileParser("puzzles/hard.txt");
 
-    private Board(Difficulty difficulty)
+    static FileParser easyFile;
+
+     static {
+         try {
+             easyFile = new FileParser("puzzles/easy.txt");
+         } catch (FileNotFoundException e) {
+             JOptionPane.showMessageDialog(new JFrame(), "puzzles/easy.txt not found\nDefault sudoku will be used for Easy Mode.", "Dialog",
+                     JOptionPane.ERROR_MESSAGE);
+         }
+     }
+
+     static FileParser randomFile;
+
+     static {
+         try {
+             randomFile = new FileParser("puzzles/random.txt");
+         } catch (FileNotFoundException e) {
+             JOptionPane.showMessageDialog(new JFrame(), "puzzles/random.txt not found\nDefault sudoku will be used for Random Mode.", "Dialog",
+                     JOptionPane.ERROR_MESSAGE);
+         }
+     }
+
+     static FileParser hardFile;
+
+     static {
+         try {
+             hardFile = new FileParser("puzzles/hard.txt");
+         } catch (FileNotFoundException e) {
+             JOptionPane.showMessageDialog(new JFrame(), "puzzles/hard.txt not found\nDefault sudoku will be used for Hard Mode.", "Dialog",
+                     JOptionPane.ERROR_MESSAGE);
+         }
+     }
+
+     private Board(Difficulty difficulty)
     {
         String grid = generateBoard(difficulty);
         solution = BoardSolver.solve(grid);
@@ -69,25 +101,24 @@ enum Difficulty
 
      static String generateBoard(Difficulty difficulty)
     {
-        String boardGrid;
+        String boardGrid = null;
 
         if (difficulty == Difficulty.EASY)
         {
-            boardGrid = easyFile.getRandomLine(81);
+            if (easyFile != null) boardGrid = easyFile.getRandomLine(81);
         }
         else if (difficulty == Difficulty.RANDOM)
         {
-            boardGrid =  randomFile.getRandomLine(81);
+            if (randomFile != null) boardGrid =  randomFile.getRandomLine(81);
         }
         else
         {
             assert difficulty == Difficulty.HARD;
 
-            boardGrid =  hardFile.getRandomLine(81);
+            if (hardFile != null) boardGrid =  hardFile.getRandomLine(81);
         }
 
         return Objects.requireNonNullElse(boardGrid, Constants.DEFAULT_PUZZLE);
-
     }
 
      void identifyFalseUnits()

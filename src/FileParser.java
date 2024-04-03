@@ -6,14 +6,11 @@ import java.util.Random;
  class FileParser {
     RandomAccessFile file;
 
-    FileParser(String filePath) {
-        try {
+    FileParser(String filePath) throws FileNotFoundException {
+
             file = new RandomAccessFile(filePath, "r");
-        } catch (FileNotFoundException e) {
-            JOptionPane.showMessageDialog(new JFrame(), "File " + filePath + " Not found.", "Dialog",
-                    JOptionPane.ERROR_MESSAGE);
-            System.exit(0);
-        }
+
+
     }
 
      String getRandomLine(int requiredLength) {
