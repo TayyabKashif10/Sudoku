@@ -12,7 +12,7 @@ enum BoardState
 
 enum Difficulty
 {
-    EASY, RANDOM, HARD;
+    EASY, RANDOM, HARD
 }
 
 public class Board {

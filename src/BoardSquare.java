@@ -11,12 +11,13 @@ public class BoardSquare {
 
     // flag is set when square contains a false value and board is complete.
     private boolean inFalseUnit = false;
-    private int positionX, positionY;
+    private final int positionX;
+    private final int positionY;
 
     // labels of peers, not the peers themselves, because we have a dictionary mapping labels to each square.
     ArrayList<String> peerList = new ArrayList<>(20);
 
-    private String label;
+    private final String label;
     private char value;
 
     private final boolean fixed;
@@ -93,7 +94,8 @@ public class BoardSquare {
             gContext.setFont(Constants.FIXED_DIGIT_FONT);
             gContext.drawString(String.valueOf(value), positionX+20, positionY+45);
         }
-        else if (isEmpty()) {return;}
+        else if (isEmpty()) {
+        }
         else
         {
             gContext.setColor(Constants.USER_DIGIT_COLOR);

@@ -61,7 +61,7 @@ public class FileParser {
             String line = new String(lineBytes);
 
             if (line.length() >= 81) {
-                return line;
+                return line.trim();
             } else {
                 return getRandomLine(requiredLength); // Retry if line is too short
             }

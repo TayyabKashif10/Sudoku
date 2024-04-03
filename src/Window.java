@@ -4,7 +4,7 @@ import java.awt.*;
 
 enum Display
 {
-    GAME_SCREEN, HOME_SCREEN, WIN_SCREEN, DIFFICULTY_SCREEN;
+    GAME_SCREEN, HOME_SCREEN, WIN_SCREEN, DIFFICULTY_SCREEN
 }
 
 public class Window extends JFrame implements Runnable {
