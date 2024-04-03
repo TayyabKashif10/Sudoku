@@ -27,18 +27,33 @@ public class Constants {
     public final static Color BORDER_COLOR = Color.gray;
 
 
-    public static final Color HOME_SCREEN_BACKGROUND = SQUARE_COLOR;
+    // home screen background color actually applies to all screen backgrounds
+    public static final Color SCREEN_BACKGROUND_COLOR = SQUARE_COLOR;
     public static final Font HOME_SCREEN_TITLE_FONT = new Font(Font.SANS_SERIF, Font.PLAIN, 100);
 
+    // used for written text on each screen.
+    public static final Color TEXT_COLOR = FIXED_DIGIT_COLOR;
     public static final Font MENU_SCREEN_TITLE_FONT = new Font(Font.SANS_SERIF, Font.PLAIN, 40);
-
     public static final Color BUTTON_COLOR = USER_DIGIT_COLOR;
     public static final Color ACTIVE_BUTTON_COLOR = FIXED_DIGIT_COLOR;
-    public static final Font BUTTON_FONT = new Font(Font.SANS_SERIF, Font.PLAIN, 40);
 
+    // for both level selection and home screen
+    public static final Font BUTTON_FONT = new Font(Font.SANS_SERIF, Font.PLAIN, 40);
     public static final int BUTTON_HEIGHT = 100;
     public static final int BUTTON_WIDTH = 200;
 
+
+    // for win screen
+    public static final Font WIN_SCREEN_BUTTON_FONT = new Font(Font.SANS_SERIF, Font.PLAIN, 60);
+    public static final int WIN_SCREEN_BUTTON_HEIGHT = BUTTON_HEIGHT;
+    public static final int WIN_SCREEN_BUTTON_WIDTH = 250;
+
+    // in case the program cant read from the puzzle source files, resort to a default puzzle.
+    public static final String DEFAULT_PUZZLE = "000000000000200045008070210000006090051802470020100000067040800940001000000000000";
+
+
+
+    // for all buttons
     public static final int BUTTON_BOUNDARY_THICKNESS = BORDER_THICKNESS;
 
 }

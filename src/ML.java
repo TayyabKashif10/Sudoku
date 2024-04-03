@@ -53,15 +53,15 @@ public class ML extends MouseAdapter
                     y >= parentWindow.homeScreenPlayButton.y && y <= parentWindow.homeScreenPlayButton.y+Constants.BUTTON_HEIGHT
             )
             {
-                parentWindow.currentDisplay = Display.LEVEL_SCREEN;
+                parentWindow.currentDisplay = Display.DIFFICULTY_SCREEN;
 
                 // reset button color.
                 parentWindow.homeScreenPlayButton.textColor = Constants.BUTTON_COLOR;
             }
         }
-        else if (parentWindow.currentDisplay == Display.LEVEL_SCREEN)
+        else if (parentWindow.currentDisplay == Display.DIFFICULTY_SCREEN)
         {
-            for (Button button : parentWindow.levelButtons)
+            for (Button button : parentWindow.difficultyButtons)
             {
 
                 if (x >= button.x && x <= button.x+Constants.BUTTON_WIDTH &&
@@ -95,6 +95,32 @@ public class ML extends MouseAdapter
 
             }
         }
+        else if (parentWindow.currentDisplay == Display.WIN_SCREEN)
+        {
+            for (Button button : parentWindow.winScreenButtons)
+            {
+
+                if (x >= button.x && x <= button.x+Constants.BUTTON_WIDTH &&
+                        y >= button.y && y <= button.y+Constants.BUTTON_HEIGHT
+                )
+                {
+
+                    if (Objects.equals(button.text, "Exit Game"))
+                    {
+                        parentWindow.keepRunning = false;
+
+                    } else
+                    {
+                        assert (Objects.equals(button.text, "Play Again"));
+
+                        // destroy previous board to allow creation of new board
+                        Board.destroyBoard();
+                        parentWindow.currentDisplay = Display.DIFFICULTY_SCREEN;
+                    }
+                                    }
+
+            }
+        }
     }
 
     public void parseMouseMovement(MouseEvent e)
@@ -115,10 +141,10 @@ public class ML extends MouseAdapter
                 parentWindow.homeScreenPlayButton.textColor = Constants.BUTTON_COLOR;
             }
         }
-        else if (parentWindow.currentDisplay == Display.LEVEL_SCREEN)
+        else if (parentWindow.currentDisplay == Display.DIFFICULTY_SCREEN)
         {
 
-            for (Button button : parentWindow.levelButtons)
+            for (Button button : parentWindow.difficultyButtons)
             {
 
                 if (x >= button.x && x <= button.x+Constants.BUTTON_WIDTH &&
@@ -132,7 +158,23 @@ public class ML extends MouseAdapter
                     button.textColor = Constants.BUTTON_COLOR;
                 }
             }
+        }
+        else if (parentWindow.currentDisplay == Display.WIN_SCREEN)
+        {
+            for (Button button : parentWindow.winScreenButtons)
+            {
 
+                if (x >= button.x && x <= button.x+Constants.BUTTON_WIDTH &&
+                        y >= button.y && y <= button.y+Constants.BUTTON_HEIGHT
+                )
+                {
+                    button.textColor = Constants.ACTIVE_BUTTON_COLOR;
+                }
+                else
+                {
+                    button.textColor = Constants.BUTTON_COLOR;
+                }
+            }
 
         }
 

@@ -3,6 +3,7 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 enum BoardState
 {
@@ -16,7 +17,6 @@ enum Difficulty
 
 public class Board {
 
-    Difficulty difficulty;
     BoardState boardState = BoardState.INCOMPLETE;
 
     String solution;
@@ -39,7 +39,7 @@ public class Board {
         String grid = generateBoard(difficulty);
         solution = BoardSolver.solve(grid);
 
-        int posX = 0, posY = 0;
+        int posX, posY;
         BoardSquare newSquare;
 
         // where (i,j) represents the index of the square on the 9 by 9 2D array
@@ -67,23 +67,27 @@ public class Board {
     }
 
 
-
-
     public static String generateBoard(Difficulty difficulty)
     {
+        String boardGrid;
+
         if (difficulty == Difficulty.EASY)
         {
-            return easyFile.getRandomLine();
+            boardGrid = easyFile.getRandomLine(81);
         }
         else if (difficulty == Difficulty.RANDOM)
         {
-            return randomFile.getRandomLine();
+            boardGrid =  randomFile.getRandomLine(81);
         }
         else
         {
             assert difficulty == Difficulty.HARD;
-            return hardFile.getRandomLine();
+
+            boardGrid =  hardFile.getRandomLine(81);
         }
+
+        return Objects.requireNonNullElse(boardGrid, Constants.DEFAULT_PUZZLE);
+
     }
 
     public void identifyFalseUnits()
@@ -133,6 +137,7 @@ public class Board {
             if (toString().equals(solution))
             {
                 boardState = BoardState.SOLVED;
+
             }
             else
             {
@@ -187,6 +192,7 @@ public class Board {
     public static void destroyBoard()
     {
         currentBoard = null;
+
     }
 
     public static Board getBoard()

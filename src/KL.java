@@ -35,13 +35,18 @@ public class KL implements KeyListener {
 
     }
 
-
     public void parseKeyClick(KeyEvent e)
     {
         if (parentWindow.currentDisplay == Display.GAME_SCREEN){
             if (Board.getBoard() != null)
             {
                 Board.getBoard().updateSquareValue(e.getKeyChar());
+
+                // after updating a value, if the board state gets changed to SOLVED, switch screens
+                if (Board.getBoard().boardState == BoardState.SOLVED)
+                {
+                    parentWindow.currentDisplay = Display.WIN_SCREEN;
+                }
             }
         }
 
