@@ -73,7 +73,7 @@ public class ML extends MouseAdapter
                     {
                         difficulty = Difficulty.EASY;
                     } else if (Objects.equals(button.text, "Luck")) {
-                        difficulty = Difficulty.LUCK;
+                        difficulty = Difficulty.RANDOM;
 
                     }
                     else

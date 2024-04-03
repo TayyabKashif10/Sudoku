@@ -38,7 +38,7 @@ public class Button {
         * when we do x+topPadding, it gives the location of where we want to place the ascent line of our text.
         * we then add textHeight to this, which gives us the location of the descent line.
         * we use this location to draw the string, so its placing the baseline AT the required descent line.
-        * thats why its slightly off center, and the bounding lines dont perfectly capture the text dimensions
+        * thats why our strings ascent line does not perfectly align with the required y-position for it.
         *
 
         * help: https://docs.oracle.com/javase/8/docs/api/java/awt/FontMetrics.html  (see class notes)
@@ -76,15 +76,15 @@ public class Button {
         int textPaddingLeft = (buttonWidth-2*Constants.BUTTON_BOUNDARY_THICKNESS - textWidth)/2;
         int textPaddingTop = (buttonHeight-2*Constants.BUTTON_BOUNDARY_THICKNESS - textHeight)/2;
 
-        // the vertical position of the text that the graphics will draw is the position of the baseline, not the top line
-        gContext.drawString(text, x + Constants.BUTTON_BOUNDARY_THICKNESS + textPaddingLeft, y+ Constants.BUTTON_BOUNDARY_THICKNESS + textPaddingTop+textHeight);
+        // the vertical position of the text that the graphics will draw is the position of the baseline, not the ascent line
+        gContext.drawString(text, x + Constants.BUTTON_BOUNDARY_THICKNESS + textPaddingLeft, y+ Constants.BUTTON_BOUNDARY_THICKNESS + textPaddingTop + textHeight );
 
 
-        // To help visualize the boundaries of the text, render the text to see and uncomment
+        /* To help visualize the boundaries of the text, uncomment and render the text to see
         gContext.setColor(Color.BLUE);
         gContext.drawLine(x,y+ Constants.BUTTON_BOUNDARY_THICKNESS + textPaddingTop+textHeight, x+200, y+ Constants.BUTTON_BOUNDARY_THICKNESS + textPaddingTop+textHeight);
         gContext.drawLine(x,y+ Constants.BUTTON_BOUNDARY_THICKNESS + textPaddingTop, x+200, y+ Constants.BUTTON_BOUNDARY_THICKNESS + textPaddingTop);
-
+        */
     }
 
 

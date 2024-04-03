@@ -1,6 +1,5 @@
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +11,7 @@ enum BoardState
 
 enum Difficulty
 {
-    EASY, LUCK, HARD;
+    EASY, RANDOM, HARD;
 }
 
 public class Board {
@@ -32,7 +31,7 @@ public class Board {
     Map<String, BoardSquare> squareMap = new HashMap<>(81);
 
     static FileParser easyFile =new FileParser("puzzles/easy.txt");
-    static FileParser luckFile = new FileParser("puzzles/luck.txt");
+    static FileParser randomFile = new FileParser("puzzles/luck.txt");
     static FileParser hardFile =new FileParser("puzzles/hard.txt");
 
     private Board(Difficulty difficulty)
@@ -76,9 +75,9 @@ public class Board {
         {
             return easyFile.getRandomLine();
         }
-        else if (difficulty == Difficulty.LUCK)
+        else if (difficulty == Difficulty.RANDOM)
         {
-            return luckFile.getRandomLine();
+            return randomFile.getRandomLine();
         }
         else
         {
