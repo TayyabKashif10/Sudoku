@@ -1,26 +1,22 @@
 import javax.swing.*;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.RandomAccessFile;
 import java.util.Random;
-import java.util.Scanner;
 
-public class FileParser {
+ class FileParser {
     RandomAccessFile file;
 
-    FileParser(String filePath)
-    {
+    FileParser(String filePath) {
         try {
             file = new RandomAccessFile(filePath, "r");
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(new JFrame(), "File " + filePath + " Not found.", "Dialog",
                     JOptionPane.ERROR_MESSAGE);
             System.exit(0);
         }
     }
 
-    public String getRandomLine(int requiredLength) {
+     String getRandomLine(int requiredLength) {
 
         String result = null;
 
@@ -66,12 +62,9 @@ public class FileParser {
                 return getRandomLine(requiredLength); // Retry if line is too short
             }
 
-        }
-        catch (Exception ignored)
-        {
+        } catch (Exception ignored) {
 
         }
-
 
 
         // null is only returned if there is an IOException in reading from the file

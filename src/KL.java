@@ -1,17 +1,17 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class KL implements KeyListener {
+ class KL implements KeyListener {
 
     Window parentWindow;
 
     @Override
-    public void keyTyped(KeyEvent e) {
+     public void keyTyped(KeyEvent e) {
         parseKeyClick(e);
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
+     public void keyPressed(KeyEvent e) {
 
         // move selection square, only relevant in the game screen
         if (parentWindow.currentDisplay == Display.GAME_SCREEN){
@@ -35,7 +35,7 @@ public class KL implements KeyListener {
 
     }
 
-    public void parseKeyClick(KeyEvent e)
+     void parseKeyClick(KeyEvent e)
     {
         if (parentWindow.currentDisplay == Display.GAME_SCREEN){
             if (Board.getBoard() != null)

@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.ArrayList;
 
-public class BoardSquare {
+ class BoardSquare {
 
     // flag is set when square is selected
     private  boolean selected = false;
@@ -34,52 +34,52 @@ public class BoardSquare {
 
     }
 
-    public boolean isFixed() {
+     boolean isFixed() {
         return fixed;
     }
-    public void setSelected(boolean bool)
+     void setSelected(boolean bool)
     {
         this.selected = bool;
     }
 
-    public void setHighlighted(boolean bool)
+     void setHighlighted(boolean bool)
     {
         this.highlighted = bool;
     }
-    public char getValue() {
+     char getValue() {
         return value;
     }
 
-    public void setValue(char value) {
+     void setValue(char value) {
         this.value = value;
     }
 
 
-    public int getPositionX() {
+     int getPositionX() {
         return positionX;
     }
 
 
 
-    public int getPositionY() {
+     int getPositionY() {
         return positionY;
     }
 
 
-    public String getLabel() {
+     String getLabel() {
         return label;
     }
 
-    public boolean isEmpty()
+     boolean isEmpty()
     {
         return value == '0';
     }
 
-    public void setInFalseUnit(boolean inFalseUnit) {
+     void setInFalseUnit(boolean inFalseUnit) {
         this.inFalseUnit = inFalseUnit;
     }
 
-    public void draw(Graphics2D gContext)
+     void draw(Graphics2D gContext)
     {
 
         if (inFalseUnit){gContext.setColor(Constants.FALSE_VALUE_COLOR);}

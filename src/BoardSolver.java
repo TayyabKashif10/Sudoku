@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class BoardSolver {
+ class BoardSolver {
 
     static String rowLabels = "ABCDEFGHI";
     static String columnLabels = "123456789";
@@ -153,7 +153,7 @@ public class BoardSolver {
     }
 
     // returns solved grid representation of board, if it cant be solved return null
-    public static String solve(String grid)
+     static String solve(String grid)
     {
         String solution;
         if (grid.length() != 81) {throw new RuntimeException("The given sudoku is invalid.");}

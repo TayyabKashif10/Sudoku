@@ -15,7 +15,7 @@ enum Difficulty
     EASY, RANDOM, HARD
 }
 
-public class Board {
+ class Board {
 
     BoardState boardState = BoardState.INCOMPLETE;
 
@@ -67,7 +67,7 @@ public class Board {
     }
 
 
-    public static String generateBoard(Difficulty difficulty)
+     static String generateBoard(Difficulty difficulty)
     {
         String boardGrid;
 
@@ -90,7 +90,7 @@ public class Board {
 
     }
 
-    public void identifyFalseUnits()
+     void identifyFalseUnits()
     {
         // clear selection square and reset colors.
         setCurrentSelectedSquare(null);
@@ -117,7 +117,7 @@ public class Board {
     }
 
     // set the inFalseUnit flag of squares inside a false unit to be true.
-    public void markFalseUnit(ArrayList<String> unit)
+     void markFalseUnit(ArrayList<String> unit)
     {
         for (String squareLabel : unit)
         {
@@ -126,7 +126,7 @@ public class Board {
 
     }
 
-    public void updateState()
+     void updateState()
     {
         if (filledSquares() != 81)
         {
@@ -149,7 +149,7 @@ public class Board {
 
     }
 
-    public int filledSquares()
+     int filledSquares()
     {
         int filledSquares = 0;
         for (String squareLabel : BoardSolver.labels)
@@ -164,7 +164,7 @@ public class Board {
     }
 
     @Override
-    public String toString() {
+     public String toString() {
 
         StringBuilder stripRep = new StringBuilder(81);
 
@@ -176,7 +176,7 @@ public class Board {
         return stripRep.toString();
     }
 
-    public static Board createBoard(Difficulty difficulty)
+     static Board createBoard(Difficulty difficulty)
     {
         if (currentBoard == null)
         {
@@ -189,19 +189,19 @@ public class Board {
         }
     }
 
-    public static void destroyBoard()
+     static void destroyBoard()
     {
         currentBoard = null;
 
     }
 
-    public static Board getBoard()
+     static Board getBoard()
     {
         return currentBoard;
     }
 
 
-    public void setCurrentSelectedSquare(BoardSquare newSelection)
+     void setCurrentSelectedSquare(BoardSquare newSelection)
     {
         selected = newSelection;
         highlightSquares();
@@ -210,7 +210,7 @@ public class Board {
 
     // select square from a mouse click
     // the first square whose bottom right corner is below and to the right of the cursor gets selected
-    public void selectSquare(int x, int y)
+     void selectSquare(int x, int y)
     {
         BoardSquare square;
         for (String label : BoardSolver.labels)
@@ -230,7 +230,7 @@ public class Board {
         }
     }
 
-    public void highlightSquares()
+     void highlightSquares()
     {
         resetSquareColors();
 
@@ -245,7 +245,7 @@ public class Board {
 
     }
 
-    public void resetSquareColors()
+     void resetSquareColors()
     {
         for (String label : BoardSolver.labels)
         {
@@ -255,7 +255,7 @@ public class Board {
         }
     }
 
-    public void updateSquareValue(char keyChar)
+     void updateSquareValue(char keyChar)
     {
         if (selected == null) {return;}
         if (keyChar == '1' ||
@@ -280,7 +280,7 @@ public class Board {
         updateState();
     }
 
-    public void moveSelection(int keyCode) {
+     void moveSelection(int keyCode) {
         // if no selection exists, select first non-fixed square.
         if (selected == null) {
             if (firstNonFixed == null) {
@@ -350,7 +350,7 @@ public class Board {
         setCurrentSelectedSquare(squareMap.get(newSelection));
 
     }
-    public void draw(Graphics2D gContext)
+     void draw(Graphics2D gContext)
     {
         //draw borders
         for (int i = 0 ; i < 10 ; i++)

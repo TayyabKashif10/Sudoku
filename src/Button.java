@@ -1,8 +1,7 @@
 import java.awt.*;
 import java.awt.font.TextLayout;
-import java.awt.geom.Rectangle2D;
 
-public class Button {
+ class Button {
 
     String text;
 
@@ -25,7 +24,7 @@ public class Button {
         this.textColor = Constants.BUTTON_COLOR;
     }
     
-    public void draw(Graphics2D gContext)
+     void draw(Graphics2D gContext)
     {
         /* FOR PERSONAL UNDERSTANDING
 

@@ -2,7 +2,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Objects;
 
-public class ML extends MouseAdapter
+ class ML extends MouseAdapter
 {
     Window parentWindow;
 
@@ -35,7 +35,7 @@ public class ML extends MouseAdapter
         parseMouseMovement(e);
     }
 
-    public void parseMouseClick(MouseEvent e)
+     void parseMouseClick(MouseEvent e)
     {
         int x = e.getX() - Constants.LEFT_BAR_HEIGHT;
         int y = e.getY() - Constants.UPPER_BAR_HEIGHT;
@@ -123,7 +123,7 @@ public class ML extends MouseAdapter
         }
     }
 
-    public void parseMouseMovement(MouseEvent e)
+     void parseMouseMovement(MouseEvent e)
     {
         int x = e.getX() - Constants.LEFT_BAR_HEIGHT;
         int y = e.getY() - Constants.UPPER_BAR_HEIGHT;

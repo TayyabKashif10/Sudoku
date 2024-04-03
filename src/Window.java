@@ -7,7 +7,7 @@ enum Display
     GAME_SCREEN, HOME_SCREEN, WIN_SCREEN, DIFFICULTY_SCREEN
 }
 
-public class Window extends JFrame implements Runnable {
+ class Window extends JFrame implements Runnable {
 
     boolean keepRunning = true;
 
