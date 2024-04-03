@@ -48,11 +48,11 @@ public class Window extends JFrame implements Runnable {
 
         graphicsBoard = (Graphics2D) this.getGraphics();
 
-        homeScreenPlayButton = new Button(180,300,"Play",Constants.BUTTON_WIDTH, Constants.BUTTON_HEIGHT);
+        homeScreenPlayButton = new Button(180,300,"y",Constants.BUTTON_WIDTH, Constants.BUTTON_HEIGHT);
 
-        levelButtons[0] = new Button(180, 120, "Easy", Constants.BUTTON_WIDTH, Constants.BUTTON_HEIGHT);
-        levelButtons[1] = new Button(180, 120+150, "Luck", Constants.BUTTON_WIDTH, Constants.BUTTON_HEIGHT);
-        levelButtons[2] = new Button(180, 120+300, "Hard",Constants.BUTTON_WIDTH, Constants.BUTTON_HEIGHT);
+        levelButtons[0] = new Button(180, 120, "EASY", Constants.BUTTON_WIDTH, Constants.BUTTON_HEIGHT);
+        levelButtons[1] = new Button(180, 120+150, "LUCK", Constants.BUTTON_WIDTH, Constants.BUTTON_HEIGHT);
+        levelButtons[2] = new Button(180, 120+300, "HARD",Constants.BUTTON_WIDTH, Constants.BUTTON_HEIGHT);
 
         winScreenButtons[0] = new Button(180, 120, "Play Again",Constants.BUTTON_WIDTH, Constants.BUTTON_HEIGHT);
         winScreenButtons[1] = new Button(180, 120, "Exit Game",Constants.BUTTON_WIDTH, Constants.BUTTON_HEIGHT);
